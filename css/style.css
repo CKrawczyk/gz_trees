@@ -1,0 +1,51 @@
+.container {
+    width: 1170px;
+}
+
+body {
+    color: #000;
+    background-color: #fff;
+}
+
+.tier1,
+.tier2,
+.tier3,
+.tier4,
+.tier5 {
+    stroke-width: 1;
+    stroke: #000;
+}
+
+.tier1 {
+    fill: #ccc;
+}
+
+.tier2 {
+    fill: #b8d4a2;
+}
+
+.tier3 {
+    fill: #9ecfdf;
+}
+
+.tier4 {
+    fill: #c5a8cc;
+}
+
+.tier5 {
+    fill: #e1a4ad;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.link {
+    fill: none;
+    stroke-opacity: 1;
+    stroke: #000;
+}
+
+.link:hover {
+    stroke-opacity: 1;
+}
