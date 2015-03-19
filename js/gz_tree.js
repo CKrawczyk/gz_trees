@@ -15,7 +15,7 @@ var margin = {top: 1, right: 1, bottom: 1, left: 1},
     width = W - margin.left - margin.right,
 	height = 1.5*W - margin.top - margin.bottom;
 
-var zoo = "4_f";
+var zoo = "2";
 var image_offset;
 var tree;
 function set_zoo() {
