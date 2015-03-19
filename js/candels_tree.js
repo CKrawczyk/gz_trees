@@ -271,7 +271,7 @@ function updateData(answers){
             .attr("y",-60)
             .attr("x",0)
             .text(function(d) { return d.name; })
-            .attr("style","font-size:16px")
+            .attr("style","font-size:15.8px")
 
         gimage.selectAll("text")
             .call(wrap);
