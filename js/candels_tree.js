@@ -15,22 +15,37 @@ var margin = {top: 1, right: 1, bottom: 1, left: 1},
     width = W - margin.left - margin.right,
 	height = 1.5*W - margin.top - margin.bottom;
 
+var zoo = "4_f";
 var image_offset;
-d3.json("./config/zoo3_offset.json", function(d){
-	image_offset = d;
-	draw_tree();
-});
-
-var candels_tree
-function draw_tree() {
-    d3.json("./config/gz3_tree.json", function(d){
-	    candels_tree = d;
-	    updateData(candels_tree);
+var tree;
+function set_zoo() {
+    d3.json("./config/zoo"+zoo+"_offset.json", function(d){
+	    image_offset = d;
+	    draw_tree();
     });
 }
 
+function draw_tree() {
+    d3.select("#pdf_link")
+        .attr("href", "./images/gz"+zoo+"_tree.pdf")
+    d3.json("./config/gz"+zoo+"_tree.json", function(d){
+	    tree = d;
+	    updateData(tree);
+    });
+}
+
+set_zoo();
+d3.selectAll("#zoo_buttons > label").on("click", function() {
+    val=d3.select(this).select("input").property("value");
+    if (zoo!=val) {
+        zoo = val;
+        set_zoo();
+    }
+});
+
 var ky = height/16.0;
 var kx = width/18.0;
+//set_zoo();
 
 // function that takes in a galaxy id and makes the node tree
 function updateData(answers){
