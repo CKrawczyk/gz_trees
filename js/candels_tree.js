@@ -13,44 +13,23 @@ Array.prototype.contains = function(obj) {
 var W = parseInt(d3.select('#tree').style('width'))
 var margin = {top: 1, right: 1, bottom: 1, left: 1},
     width = W - margin.left - margin.right,
-	height = 1.4*W - margin.top - margin.bottom;
-
-// Re-draw when window size is changed
-function resize_window() {
-    val = parseInt(d3.select('#tree').style('width'))
-    if (val!=W){
-        W=val;
-        width = W - margin.left - margin.right;
-        height = 1.4*W - margin.top - margin.bottom;
-        ky = height/15.0;
-        kx = width/18.0;
-        draw_tree();
-    }
-};
-var weight_state = 0;
-
-// wait for re-size event to be over before re-drawing
-var doit;
-window.onresize = function() {
-    clearTimeout(doit);
-    doit = setTimeout(resize_window, 100);
-};
+	height = 1.5*W - margin.top - margin.bottom;
 
 var image_offset;
-d3.json("./config/zoo4_c_offset.json", function(d){
+d3.json("./config/zoo3_offset.json", function(d){
 	image_offset = d;
 	draw_tree();
 });
 
 var candels_tree
 function draw_tree() {
-    d3.json("./config/gz4_c_tree.json", function(d){
+    d3.json("./config/gz3_tree.json", function(d){
 	    candels_tree = d;
 	    updateData(candels_tree);
     });
 }
 
-var ky = height/15.0;
+var ky = height/16.0;
 var kx = width/18.0;
 
 // function that takes in a galaxy id and makes the node tree
@@ -221,7 +200,7 @@ function updateData(answers){
         
 	    // add a path object to each link
 	    var lenter = link.enter().insert("path", ".gnode")
-            .attr("class", function(d) { return d.is_max ? "link link_max" : "link"; })
+            .attr("class", function(d) { return d.dash ? "link dash" : "link"; })
 	        .attr("d", diagonal)
             .style("stroke-width",1.5);
         
