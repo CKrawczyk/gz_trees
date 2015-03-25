@@ -13,7 +13,7 @@ Array.prototype.contains = function(obj) {
 var W = parseInt(d3.select('#tree').style('width'))
 var margin = {top: 1, right: 1, bottom: 1, left: 1},
     width = W - margin.left - margin.right,
-	height = 1.5*W - margin.top - margin.bottom;
+	height = 1.2*W - margin.top - margin.bottom;
 
 var zoo = "2";
 var image_offset;
