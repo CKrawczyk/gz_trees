@@ -27,7 +27,7 @@ function set_zoo() {
 
 function draw_tree() {
     d3.select("#pdf_link")
-        .attr("href", "./images/gz"+zoo+"_tree.pdf")
+        .attr("href", "./images/gz"+zoo+"_tree_crop.pdf")
     d3.json("./config/gz"+zoo+"_tree.json", function(d){
 	    tree = d;
 	    updateData(tree);
